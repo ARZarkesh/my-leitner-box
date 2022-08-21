@@ -1,5 +1,7 @@
 {
-  "cSpell.words": ["Vitesse"],
+  "cSpell.words": [
+    "Vitesse"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "volar.tsPlugin": true,
   "volar.tsPluginStatus": false,
@@ -10,4 +12,11 @@
   "files.associations": {
     "*.css": "postcss",
   },
+  "material-icon-theme.folders.associations": {
+    "repository": "connection",
+    "datasource": "database",
+  },
+  "conventionalCommits.scopes": [
+    ".vscode"
+  ]
 }
