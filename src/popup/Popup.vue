@@ -8,7 +8,8 @@ function openOptionsPage() {
 
 <template>
   <main class="w-[300px] px-4 py-5 text-center text-gray-700">
-    <Logo />
+    <!-- <Logo /> -->
+    <img src="/assets/logo.png" alt="">
     <div>Popup</div>
     <p class="mt-2 opacity-50">
       This is the popup page

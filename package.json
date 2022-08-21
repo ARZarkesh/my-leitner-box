@@ -1,8 +1,8 @@
 {
-  "name": "vitesse-webext",
-  "displayName": "Vitesse WebExt",
+  "name": "my-leitner-box",
+  "displayName": "My Leitner Box",
   "version": "0.0.1",
-  "description": "[description]",
+  "description": "Description",
   "private": true,
   "scripts": {
     "dev": "npm run clear && cross-env NODE_ENV=development run-p dev:*",
