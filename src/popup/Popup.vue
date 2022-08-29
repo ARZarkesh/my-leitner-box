@@ -1,24 +1,28 @@
 <script setup lang="ts">
-import { storageDemo } from '~/logic/storage'
+import { Card_GetSuggestions } from '~/repository/Card'
 
-function openOptionsPage() {
-  browser.runtime.openOptionsPage()
+const frontText = ref('')
+
+function test() {
+  Card_GetSuggestions({ query: 'test' })
+    .then((response) => {
+      console.log(response)
+    })
 }
+
 </script>
 
 <template>
-  <main class="w-[300px] px-4 py-5 text-center text-gray-700">
-    <!-- <Logo /> -->
-    <img src="/assets/logo.png" alt="">
-    <div>Popup</div>
-    <p class="mt-2 opacity-50">
-      This is the popup page
-    </p>
-    <button class="btn mt-2" @click="openOptionsPage">
-      Open Options
-    </button>
-    <div class="mt-2">
-      <span class="opacity-50">Storage:</span> {{ storageDemo }}
+  <button @click="test()">
+    test
+  </button>
+  <main class="w-[500px] px-4 py-5 text-center">
+    <img class="mx-auto" width="128" height="128" src="/assets/logo.png" alt="Logo">
+    <h1 class="text-lg font-bold">
+      My Leitner Box
+    </h1>
+    <div class="mt-4">
+      <BaseInput v-model="frontText" class="w-full" label="Word" />
     </div>
   </main>
 </template>
