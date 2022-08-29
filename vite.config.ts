@@ -21,6 +21,7 @@ export const sharedConfig: UserConfig = {
   },
   define: {
     __DEV__: isDev,
+    BASE_API: JSON.stringify('https://leitner.colp.ir'),
   },
   plugins: [
     Vue(),
