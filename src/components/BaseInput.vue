@@ -9,7 +9,7 @@ const { modelValue } = useVModels(props)
 
 <template>
   <label class="flex items-center">
-    <span class="mr-4">
+    <span class="mr-4 w-60px">
       {{ props.label }}
     </span>
     <input

@@ -17,6 +17,7 @@
     "datasource": "database",
   },
   "conventionalCommits.scopes": [
-    ".vscode"
+    ".vscode",
+    "BaseInput"
   ]
 }
