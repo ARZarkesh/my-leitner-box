@@ -2,6 +2,7 @@
 import { debouncedWatch } from '@vueuse/shared'
 import { Card_AddWord, Card_GetSuggestions } from '~/repository/Card'
 import { handleCommonError } from '~/utils'
+import Logo from '~/assets/logo.png'
 
 const frontText = ref('')
 const backText = ref('')
@@ -44,7 +45,7 @@ function addToBox() {
 
 <template>
   <main class="w-[500px] px-4 py-5 text-center">
-    <img class="mx-auto" width="128" height="128" src="/assets/logo.png" alt="Logo">
+    <img class="mx-auto" width="128" height="128" :src="Logo" alt="Logo">
     <h1 class="text-lg font-bold">
       My Leitner Box
     </h1>
@@ -52,7 +53,9 @@ function addToBox() {
       <BaseInput v-model="frontText" class="w-full" label="Word" />
       <BaseInput v-model="backText" class="w-full mt-4" label="Translation">
         <template #append>
-          <BaseLoading v-if="loadingGetSuggestions" class="w-6 text-primary-200" />
+          <div v-if="loadingGetSuggestions" class="w-6 h-6">
+            <BaseLoading class="text-primary-200" />
+          </div>
         </template>
       </BaseInput>
     </div>
