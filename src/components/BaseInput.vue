@@ -12,10 +12,13 @@ const { modelValue } = useVModels(props)
     <span class="mr-4 w-60px">
       {{ props.label }}
     </span>
-    <input
-      v-model="modelValue"
-      type="text"
-      class="flex-grow border-2 border-solid border-gray-300 h-10 focus:outline-none focus:border-blue-300 px-3 rounded-sm"
-    >
+    <div class="flex items-center border-2 border-solid border-gray-300 h-10 focus-within:border-blue-300 px-3 rounded-sm flex-grow">
+      <input
+        v-model="modelValue"
+        type="text"
+        class="flex-grow focus:outline-none"
+      >
+      <slot name="append" />
+    </div>
   </label>
 </template>
