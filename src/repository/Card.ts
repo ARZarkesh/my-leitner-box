@@ -6,5 +6,10 @@ export async function Card_GetSuggestions(body: API_Card_GetSuggestions_Input) {
 }
 
 export async function Card_AddWord(body: API_Card_AddWord_Input) {
+  if (!body.back_text)
+    throw new Error('Please enter word')
+  if (!body.front_text)
+    throw new Error('Please enter translation')
+
   return API_Card_AddWord(body)
 }

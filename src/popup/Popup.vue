@@ -1,17 +1,23 @@
 <script setup lang="ts">
 import { debouncedWatch } from '@vueuse/shared'
 import { Card_AddWord, Card_GetSuggestions } from '~/repository/Card'
+import { handleCommonError } from '~/utils'
 
 const frontText = ref('')
 const backText = ref('')
 
+const loadingGetSuggestions = ref(false)
 const loadingAddWord = ref(false)
 
 debouncedWatch(frontText, () => {
   if (frontText.value) {
+    loadingGetSuggestions.value = true
     Card_GetSuggestions({ query: frontText.value })
       .then((response) => {
         backText.value = response.translate
+      })
+      .finally(() => {
+        loadingGetSuggestions.value = false
       })
   }
   else {
@@ -28,6 +34,7 @@ function addToBox() {
       frontText.value = ''
       backText.value = ''
     })
+    .catch(handleCommonError)
     .finally(() => {
       loadingAddWord.value = false
     })
@@ -43,7 +50,11 @@ function addToBox() {
     </h1>
     <div class="mt-4">
       <BaseInput v-model="frontText" class="w-full" label="Word" />
-      <BaseInput v-model="backText" class="w-full mt-4" label="Translation" />
+      <BaseInput v-model="backText" class="w-full mt-4" label="Translation">
+        <template #append>
+          <BaseLoading v-if="loadingGetSuggestions" class="w-6 text-primary-200" />
+        </template>
+      </BaseInput>
     </div>
     <BaseButton class="mt-4 w-full" :loading="loadingAddWord" @click="addToBox">
       Add to box
