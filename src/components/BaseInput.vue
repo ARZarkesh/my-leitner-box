@@ -16,7 +16,7 @@ const { modelValue } = useVModels(props)
       <input
         v-model="modelValue"
         type="text"
-        class="flex-grow focus:outline-none"
+        class="flex-grow focus:outline-none bg-transparent"
       >
       <slot name="append" />
     </div>
